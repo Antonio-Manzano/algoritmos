@@ -1,9 +1,9 @@
-Algoritmo Descuento_total_de_compra_octubre
-	Escribir "¿Cuál es el mes en el que se hace la compra?"
-	Escribir "1: Octubre"
+Algoritmo Descuento_total_de_compra_septiembre
+	Escribir "Â¿CuÃ¡l es el mes en el que se hace la compra?"
+	Escribir "1: Septiembre"
 	Escribir "2: Cualquier otro mes"
 	Leer mes
-	Escribir "¿Cuál es el total de importe?"
+	Escribir "Â¿CuÃ¡l es el total de importe?"
 	leer importe
 	Si (mes=1) Entonces
 		Escribir "El total del cobro para el cliente es de " (importe)-(importe*.15)
