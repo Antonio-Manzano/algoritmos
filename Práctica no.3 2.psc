@@ -1,9 +1,5 @@
 Algoritmo Descuento_total_de_compra_septiembre
-<<<<<<< HEAD
-	Escribir "¿Cuál es el mes en el que se hace la compra?"
-=======
 	Escribir "Â¿CuÃ¡l es el mes en el que se hace la compra?"
->>>>>>> b499efe9f0f228c4e4158026f73b59adb79184c3
 	Escribir "1: Septiembre"
 	Escribir "2: Cualquier otro mes"
 	Leer mes
