@@ -1,6 +1,6 @@
-Algoritmo Descuento_total_de_compra_octubre
+Algoritmo Descuento_total_de_compra_septiembre
 	Escribir "¿Cuál es el mes en el que se hace la compra?"
-	Escribir "1: Octubre"
+	Escribir "1: Septiembre"
 	Escribir "2: Cualquier otro mes"
 	Leer mes
 	Escribir "¿Cuál es el total de importe?"
