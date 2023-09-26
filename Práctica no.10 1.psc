@@ -1,10 +1,12 @@
 Algoritmo Vacunas
 	Definir vacuna, suministrar Como Entero;
-	Definir punto, reparto Como Caracter;
+	Definir puntoa, puntob, puntoc, puntod, puntoe, puntof, puntog, puntoh, puntoi, puntoj Como Entero;
+	Definir punto, reparto, disponibles Como Caracter;
 	vacuna<-1000;
 	suministrar<-0;
 	punto<-"0";
 	reparto<-"0";
+	puntoa<-0; puntob<-0; puntoc<-0; puntod<-0; puntoe<-0; puntof<-0; puntog<-0; puntoh<-0; puntoi<-0; puntoj<-0;
 	Escribir "Tenemos ",vacuna," vacunas a disposición";
 	Escribir "Estos son los puntos de reparto que tenemos asignados";
 	Escribir " A, B, C, D, E, F, G, H, I, J";
@@ -43,7 +45,7 @@ Algoritmo Vacunas
 									Si (reparto = "G") Entonces 
 										puntog<-suministrar;
 									SiNo
-										Si (repartoh = "H") Entonces 
+										Si (reparto = "H") Entonces 
 											puntoh<-suministrar;
 										SiNo
 											Si (reparto = "I") Entonces 
@@ -79,15 +81,14 @@ Algoritmo Vacunas
 			disponibles<-"Si";
 		FinSi
 	Hasta Que (disponibles="No")
-	Escribir "En el Punto A se suministraron se dejaron", puntoa," vacunas.";
-	Escribir "En el Punto B se suministraron se dejaron", puntob," vacunas.";
-	Escribir "En el Punto C se suministraron se dejaron", puntoc," vacunas.";
-	Escribir "En el Punto D se suministraron se dejaron", puntod," vacunas.";
-	Escribir "En el Punto E se suministraron se dejaron", puntoe," vacunas.";
-	Escribir "En el Punto F se suministraron se dejaron", puntof," vacunas.";
-	Escribir "En el Punto G se suministraron se dejaron", puntog," vacunas.";
-	Escribir "En el Punto H se suministraron se dejaron", puntoh," vacunas.";
-	Escribir "En el Punto I se suministraron se dejaron", puntoi," vacunas.";
-	Escribir "En el Punto J se suministraron se dejaron", puntoj," vacunas.";
-	Escribir "En el Punto K se suministraron se dejaron", puntok," vacunas.";
+	Escribir "En el Punto A se suministraron se dejaron ", puntoa," vacunas.";
+	Escribir "En el Punto B se suministraron se dejaron ", puntob," vacunas.";
+	Escribir "En el Punto C se suministraron se dejaron ", puntoc," vacunas.";
+	Escribir "En el Punto D se suministraron se dejaron ", puntod," vacunas.";
+	Escribir "En el Punto E se suministraron se dejaron ", puntoe," vacunas.";
+	Escribir "En el Punto F se suministraron se dejaron ", puntof," vacunas.";
+	Escribir "En el Punto G se suministraron se dejaron ", puntog," vacunas.";
+	Escribir "En el Punto H se suministraron se dejaron ", puntoh," vacunas.";
+	Escribir "En el Punto I se suministraron se dejaron ", puntoi," vacunas.";
+	Escribir "En el Punto J se suministraron se dejaron ", puntoj," vacunas.";
  FinAlgoritmo
