@@ -9,11 +9,11 @@ Algoritmo Productosumaypromedio
 	n<-0;
 	prommult4<-0;
 	mult<-0;
-	Escribir "¿Cuántos números quieres ingresar?";
+	Escribir "Â¿CuÃ¡ntos nÃºmeros quieres ingresar?";
 	Leer n;
 	Repetir
 		n1<-n1+1;
-		Escribir "Introduzca un número";
+		Escribir "Introduzca un nÃºmero";
 		Leer numero1;
 		Si (numero1%4=0) Entonces
 			Si (multiplo4=0) Entonces
@@ -33,8 +33,8 @@ Algoritmo Productosumaypromedio
 			impaar<-numero1+impaar;
 		FinSi	
 	Hasta Que (n = n1)
-	Escribir "El producto de todos los números pares menores a 25 ingresados es ",paar;
-	Escribir "La suma de todos los números impares mayores a 16 ingresados es ",impaar;
-	Escribir "El promedio de todos los números multiplos de 4 ingresados es ",prommult4;
+	Escribir "El producto de todos los nÃºmeros pares menores a 25 ingresados es ",paar;
+	Escribir "La suma de todos los nÃºmeros impares mayores a 16 ingresados es ",impaar;
+	Escribir "El promedio de todos los nÃºmeros multiplos de 4 ingresados es ",prommult4;
 	FinAlgoritmo
 	
