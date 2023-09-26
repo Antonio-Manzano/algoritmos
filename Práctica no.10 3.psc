@@ -5,15 +5,15 @@ Algoritmo Mayor_a_0
 	numerot<-0;
 	finn<-"0";
 	Repetir
-		Escribir "Introduce un número";
+		Escribir "Introduce un nÃºmero";
 		Leer numero1;
-		Si (numero1>=0) Entonces
+		Si (numero1>0) Entonces
 			finn<-"no";
 			numerot<-numerot+numero1;
 		SiNo
 			finn<-"si";
 		FinSi
 	Hasta Que (finn="si")
-	Escribir "La suma de los números positivos es igual a ",numerot;
+	Escribir "La suma de los nÃºmeros positivos es igual a ",numerot;
 	FinAlgoritmo
 	
