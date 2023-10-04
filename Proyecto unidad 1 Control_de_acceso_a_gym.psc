@@ -73,7 +73,7 @@ Algoritmo Control_de_acceso_a_gym
 							Escribir "Sexo (M/F):"
 							//sexo del socio
 							leer sexo_baile
-							si sexo_baile<>"m"o sexo_baile<>"M" o osexo_baile<>"f" o sexo_baile<>"F" Entonces
+							si sexo_baile<>"m" y sexo_baile<>"M" y osexo_baile<>"f" y sexo_baile<>"F" Entonces
 								Escribir "Opcion no valida"
 							FinSi
 						Hasta Que sexo_baile="m"o sexo_baile="M" o sexo_baile="f" o sexo_baile="F"
@@ -208,10 +208,8 @@ Algoritmo Control_de_acceso_a_gym
 						//sexo del socio
 						leer sexo_pesas
 						Repetir
-							Escribir "Sexo (M/F):"
-							//sexo del socio
 							leer sexo_pesas
-							si sexo_pesas<>"m" o sexo_pesas<>"M" o sexo_pesas<>"f" o sexo_pesas<>"F" Entonces
+							si sexo_pesas<>"m" y sexo_pesas<>"M" y sexo_pesas<>"f" y sexo_pesas<>"F" Entonces
 								Escribir "Opcion no valida"
 							FinSi
 						Hasta Que sexo_pesas="m" o sexo_pesas="M" o sexo_pesas="f" o sexo_pesas="F"
@@ -346,7 +344,7 @@ Algoritmo Control_de_acceso_a_gym
 							Escribir "Sexo (M/F):"
 							//sexo del socio
 							leer sexo_aerobics
-							si sexo_aerobics<>"m" o sexo_aerobics<>"M" o sexo_aerobics<>"f" o sexo_aerobics<>"F" Entonces
+							si sexo_aerobics<>"m" y sexo_aerobics<>"M" y sexo_aerobics<>"f" y sexo_aerobics<>"F" Entonces
 								Escribir "Opcion no valida"
 							FinSi
 						Hasta Que sexo_aerobics="m" o sexo_aerobics="M" o sexo_aerobics="f" o sexo_aerobics="F"
@@ -481,7 +479,7 @@ Algoritmo Control_de_acceso_a_gym
 							Escribir "Sexo (M/F):"
 							//sexo del socio
 							leer sexo_cardio
-							si sexo_cardio<>"m" o sexo_cardio<>"M" o sexo_cardio<>"f" o sexo_cardio<>"F" Entonces
+							si sexo_cardio<>"m" y sexo_cardio<>"M" y sexo_cardio<>"f" y sexo_cardio<>"F" Entonces
 								Escribir "Opcion no valida"
 							FinSi
 						Hasta Que sexo_cardio="m" o sexo_cardio="M" o sexo_cardio="f" o sexo_cardio="F"
@@ -616,7 +614,7 @@ Algoritmo Control_de_acceso_a_gym
 							Escribir "Sexo (M/F):"
 							//sexo del socio
 							leer sexo_nutricion
-							si sexo_nutricion<>"m" o sexo_nutricion<>"M" o sexo_nutricion<>"f" o sexo_nutricion<>"F" Entonces
+							si sexo_nutricion<>"m" y sexo_nutricion<>"M" y sexo_nutricion<>"f" y sexo_nutricion<>"F" Entonces
 								Escribir "Opcion no valida"
 							FinSi
 						Hasta Que sexo_nutricion="m" o sexo_nutricion="M" o sexo_nutricion="f" o sexo_nutricion="F"
