@@ -443,7 +443,7 @@ Algoritmo Tienda_de_ventas_en_linea
 				Leer respuestac;
 			Hasta Que (respuestac="No" o respuestac="no" o respuestac="NO" o respuestac="nO")
 		FinSi
-		Escribir "¿Desea comprar algo más de esta línea? Escribe (Si/No)"; //Imprime una pregunta por si queremos algún otro producto de esta línea
+		Escribir "¿Desea comprar algo más de alguna otra línea? Escribe (Si/No)"; //Imprime una pregunta por si queremos algún otro producto de esta línea
 		Leer respuestac; //Y procede a leer la respuesta
 	Hasta Que (respuestac="No" o respuestac="no" o respuestac="NO" o respuestac="nO")
 	Si (sexo="M"o sexo="m") Entonces
