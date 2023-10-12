@@ -1,11 +1,11 @@
 Algoritmo Productos_plato_costo
 	Definir n, costo, total Como Real
-	Escribir "Inicializando costo de productos para la preparación de un plato...";
-	Escribir "¿Cuánta es la cantidad de productos que se necesita?";
+	Escribir "Inicializando costo de productos para la preparaciÃ³n de un plato...";
+	Escribir "Â¿CuÃ¡nta es la cantidad de productos que se necesita?";
 	Leer n;
 	Dimension costo[n];
 	Para p<-1 Hasta n Hacer
-		Escribir "¿Cuál es el costo del producto ", p "?";
+		Escribir "Â¿CuÃ¡l es el costo del producto ", p "?";
 		Leer costo[p];
 		//suma del costo de todos los productos
 		total<-costo[p]+total;
