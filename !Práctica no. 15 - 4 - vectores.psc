@@ -16,6 +16,9 @@ Algoritmo Nombre_edad
 			Escribir "Ingresa la edad del alumno ", c;
 			Leer edad[c];
 		FinSi
+		Si nombre[c]="*" Entonces
+			c<-n;
+		FinSi
 		//Se comprueba cual es el número mayor de edad de todos los alumnos
 		Si edad[c]>=edadmayor Entonces
 			edadmayor<-edad[c]
@@ -38,9 +41,11 @@ Algoritmo Nombre_edad
 	FinSi
 	//Se comprueba cuales edades son iguales a la edad mayor para registrar a los alumnos
 	Para c<-1 Hasta n Hacer
-		Si edad[c]=edadmayor Entonces
+		Si edadmayor<>0 Entonces
+			Si edad[c]=edadmayor Entonces
 			Escribir " El alumno ", nombre[c], " con ", edad[c] " años";
 		FinSi
+	FinSi
 	FinPara
 	Si medad<>0 Entonces
 		Escribir "Actualmente hay ", medad, " alumnos mayores de edad";
