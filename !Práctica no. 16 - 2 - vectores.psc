@@ -4,7 +4,7 @@ Algoritmo VectoresA_B_C
 	Dimension A[5];
 	Dimension B[5];
 	Dimension C[5];
-	Escribir "Ingresando 5 números enteros al vector A y al vector B";
+	Escribir "Ingresando 5 nÃºmeros enteros al vector A y al vector B";
 	Para n<-1 hasta 5 Hacer
 		Escribir "Escribe el elemento ", n," del vector A";
 		Leer A[n];
