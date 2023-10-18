@@ -8,11 +8,11 @@ Algoritmo Temperaturas
 	
 	Para n<-1 Hasta 10 Hacer
 		c<-c+1
-		Escribir "Ingresando temperaturas del día ", c;
-		Escribir "Escribe la temperatura mínima del día ", c;
+		Escribir "Ingresando temperaturas del dÃ­a ", c;
+		Escribir "Escribe la temperatura mÃ­nima del dÃ­a ", c;
 		Leer temperatura[n];
 		n<-n+1
-		Escribir "Escribe la temperatura máxima del día ", c;
+		Escribir "Escribe la temperatura mÃ¡xima del dÃ­a ", c;
 		Leer temperatura[n];
 		tempmedia[c]<-(temperatura[n]+temperatura[n-1])/2;
 		Si tempmedia[c]>tempmayor Entonces
@@ -30,22 +30,22 @@ Algoritmo Temperaturas
 	c=0;
 	Para n<-1 Hasta 5 Hacer
 		c<-c+1
-		Escribir "La temperatura media del día ", c, " es:";
-		Escribir tempmedia[n], "°";
+		Escribir "La temperatura media del dÃ­a ", c, " es:";
+		Escribir tempmedia[n], "Â°";
 	FinPara
-	Escribir "Los días con menos temperatura son:";
+	Escribir "Los dÃ­as con menos temperatura son:";
 	Para n<-1 Hasta 5 Hacer
 		Si tempmedia[n]=tempmenor Entonces
-			Escribir "El día ", n, " con ", tempmedia[n], "°";
+			Escribir "El dÃ­a ", n, " con ", tempmedia[n], "Â°";
 		FinSi
 	FinPara
-	Escribir "Escribe una temperatura máxima";
+	Escribir "Escribe una temperatura mÃ¡xima";
 	Leer etemp
 	c=0;
 	Para n<-2 Hasta 10 Hacer
 		c<-c+1;
 		Si temperatura[n]=etemp Entonces
-			Escribir "El día ", c," coincide con esta temperatura máxima, que es: ", temperatura[n], "°";
+			Escribir "El dÃ­a ", c," coincide con esta temperatura mÃ¡xima, que es: ", temperatura[n], "Â°";
 		FinSi
 		n<-n+1;
 	FinPara
@@ -54,7 +54,7 @@ Algoritmo Temperaturas
 			Si temperatura[6]<>etemp Entonces
 				Si temperatura[8]<>etemp Entonces
 					Si temperatura[10]<>etemp Entonces
-						Escribir "No hay ningún día que coincida con la temperatura máxima insertada";
+						Escribir "No hay ningÃºn dÃ­a que coincida con la temperatura mÃ¡xima insertada";
 					FinSi
 				FinSi
 			FinSi
