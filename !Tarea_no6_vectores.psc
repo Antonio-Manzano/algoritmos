@@ -102,6 +102,7 @@ Algoritmo Tarea_no6_vectores
 								FinPara
 							SiNo
 								Si sucursal=2 Entonces
+									a<-(posicionproducto)+5;
 									Para f<-1 Hasta 5 Hacer
 										Si posicionproducto=f Entonces
 											recaudado[2]<-producto[f]*cantidadproducto+recaudado[2];
@@ -109,7 +110,7 @@ Algoritmo Tarea_no6_vectores
 									FinPara
 								SiNo
 									Si sucursal=3 Entonces
-										a<-posicionproducto+10;
+										a<-(posicionproducto)+10;
 										Para f<-1 Hasta 5 Hacer
 											Si posicionproducto=f Entonces
 												recaudado[3]<-producto[f]*cantidadproducto+recaudado[3];
@@ -117,7 +118,7 @@ Algoritmo Tarea_no6_vectores
 										FinPara
 									SiNo
 										Si sucursal=4 Entonces;
-											a<-posicionproducto+15
+											a<-(posicionproducto)+15;
 											Para f<-1 Hasta 5 Hacer
 												Si posicionproducto=f Entonces
 													recaudado[4]<-producto[f]*cantidadproducto+recaudado[4];
