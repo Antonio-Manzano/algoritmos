@@ -8,6 +8,7 @@ Algoritmo sin_titulo
 	// que comparten dos o más números
 	Dimension matriz[5,10];
 	//Se asignan los valores de la columna
+	Dimension coincidencias[54];
 	Para x<-1 Hasta 4 Hacer
 		Escribir "Escribe el valor de la columna " x;
 		Leer matriz[x,0];
@@ -48,7 +49,7 @@ Algoritmo sin_titulo
 		Escribir ""
 	FinPara
 	Escribir " "
-
+	//Se encuentran los multiplos que coinciden de cada numero
 	Para x<-1 Hasta 4 Hacer
 		Para z<-1 Hasta 9 Hacer
 			Para t<--3 Hasta 3 Hacer
@@ -57,26 +58,26 @@ Algoritmo sin_titulo
 				Si matriz[x,z]=matriz[x+t,z] Entonces
 					multiplos<-multiplos+1
 						Si multiplos=1 Entonces
-							Escribir "Los números ", matriz[x,1]," y ", matriz[x+t,1], " tienen un multiplo en común, el " matriz[x,z];
+							coincidencias[m]<-matriz[x,z];
+							m<-m+1
 					FinSi
 				SiNo
 					Para s<-1 Hasta 8 Hacer
 						Si z-s>0 Entonces
 							Si matriz[x,z]=matriz[x+t,z-s] Entonces
 								multiplos<-multiplos+1;
-								m<-m+1
 								Si multiplos=1 Entonces
-									Escribir "Los números ", matriz[x,1]," y ", matriz[x+t,1], " tienen un multiplo en común, el " matriz[x,z];
-									
+									coincidencias[m]<-matriz[x,z];
+									m<-m+1
 								FinSi
 							FinSi
 						FinSi
 						Si z+s<10 Entonces
 							Si matriz[x,z]=matriz[x+t,z+s] Entonces
 								multiplos<-multiplos+1;
-								m<-m+1
 								Si multiplos=1 Entonces
-									Escribir "Los números ", matriz[x,1]," y ", matriz[x+t,1], " tienen un multiplo en común, el " matriz[x,z];
+									coincidencias[m]<-matriz[x,z];
+									m<-m+1
 								FinSi
 							FinSi
 						FinSi
@@ -85,5 +86,41 @@ Algoritmo sin_titulo
 			FinSi
 			FinPara
 		FinPara
+	FinPara
+	//Se ordenan los multiplos
+	Para x<-0 Hasta m-2 Hacer
+		ant<-x;
+		Para z<-x+1 Hasta m-1 Hacer
+			Si coincidencias[z]<coincidencias[ant] Entonces
+				ant<-z;
+			FinSi
+		FinPara
+		auxn<-coincidencias[x];
+		coincidencias[x]<-coincidencias[ant]
+		coincidencias[ant]<-auxn;
+	FinPara
+	//Se imprimen los multiplos
+	Para t<-0 Hasta m-1 Hacer
+		Si t>1 Entonces
+			Si coincidencias[t]<>coincidencias[t-1] Entonces
+				Escribir "Los números con multiplo " , coincidencias[t], " son:"
+				Para x<-1 Hasta 4 Hacer 
+					Para z<-1 Hasta 9 Hacer
+						Si matriz[x,z]=coincidencias[t] Entonces
+							Escribir "El número ", matriz[x,0];
+						FinSi
+					FinPara
+				FinPara
+			FinSi
+		SiNo
+			Escribir "Los números con multiplo " , coincidencias[t], " son:"
+			Para x<-1 Hasta 4 Hacer 
+				Para z<-1 Hasta 9 Hacer
+					Si matriz[x,z]=coincidencias[t] Entonces
+						Escribir "El número ", matriz[x,0];
+					FinSi
+				FinPara
+			FinPara
+		FinSi
 	FinPara
 FinAlgoritmo
