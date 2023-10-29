@@ -1,4 +1,7 @@
-Algoritmo sin_titulo
+Algoritmo Multiplos
+	Definir f, c, x, z, t, s, m, ant Como Entero
+	Definir matriz, aux Como Real
+	Definir multi Como Entero
 	//Se tiene una matriz de 5 x 10 en donde la fila principal es fija pero la columna
 	// 0 con 0, 0 con 1, 0 con 2, 0 con 3, 0 con 4 son variables dado los valores ingresados en dicha
 	//columna, mostrar en la matriz a los valores de las multiplicaciones segun los parametros
@@ -6,26 +9,34 @@ Algoritmo sin_titulo
 	//tabla de multiplicar del 1 al 9, la columna es variable
 	//Una vez ingresado los valores de la tabla a calcular se deberá identificar los multiplos comunes
 	// que comparten dos o más números
-	Dimension matriz[5,10];
+	Escribir "¿Cual es el número de filas?";
+	f<-5;
+	Escribir f;
+	Escribir "¿Cual es el número de columnas?";
+	c<-10;
+	Escribir c;
+	Dimension matriz[f,c];
 	//Se asignan los valores de la columna
 	Dimension coincidencias[54];
-	Para x<-1 Hasta 4 Hacer
+	Para x<-1 Hasta f-1 Hacer
 		Escribir "Escribe el valor de la columna " x;
 		Leer matriz[x,0];
 	FinPara
 	//Se asignan los valores de las filas
-	Para z<-1 Hasta 9 Hacer
+	Para z<-1 Hasta c-1 Hacer
 		matriz[0,z]<-z;
 	FinPara
-	Para x<-1 Hasta 4 Hacer
-		Para z<-1 Hasta 9 Hacer
+	Para x<-1 Hasta f-1 Hacer
+		Para z<-1 Hasta c-1 Hacer
+			//Se multiplica la columna por la fila dentro de toda la tabla
 			matriz[x,z]<-matriz[x,0]*matriz[0,z];
 		FinPara
 	FinPara
 	Escribir "   M A T R I Z";
 	Escribir " ";
-	Para x<-0 Hasta 4 Hacer
-		Para z<-0 Hasta 9 Hacer
+	//Se acomoda la matriz dependiendo de que número sea impreso
+	Para x<-0 Hasta f-1 Hacer
+		Para z<-0 Hasta c-1 Hacer
 			Si x=0 Entonces
 				Escribir Sin Saltar "    ", matriz[x,z];
 			SiNo
@@ -50,77 +61,99 @@ Algoritmo sin_titulo
 	FinPara
 	Escribir " "
 	//Se encuentran los multiplos que coinciden de cada numero
-	Para x<-1 Hasta 4 Hacer
-		Para z<-1 Hasta 9 Hacer
+	Para x<-1 Hasta f-1 Hacer
+		Para z<-1 Hasta c-1 Hacer
 			Para t<--3 Hasta 3 Hacer
-				Si x+t>x y x+t<5 Entonces
-				multiplos<-0;
-				Si matriz[x,z]=matriz[x+t,z] Entonces
-					multiplos<-multiplos+1
-						Si multiplos=1 Entonces
+				Si x+t>x y x+t<f Entonces
+					multi<-0;
+					//Se busca multiplos debajo del número en el que se encuentra buscando
+					Si matriz[x,z]=matriz[x+t,z] Entonces
+						multi<-multi+1
+						Si multi=1 Entonces
+							//Se registra la coincidencia
 							coincidencias[m]<-matriz[x,z];
-							m<-m+1
+							m<-m+1;
+						FinSi
+					SiNo
+						Para s<-1 Hasta c-2 Hacer
+							Si z-s>0 Entonces
+								//Se busca multiplos debajo y atras del número en el que se encuentra buscando
+								Si matriz[x,z]=matriz[x+t,z-s] Entonces
+									multi<-multi+1;
+									Si multi=1 Entonces
+										//Se registra la coincidencia
+										coincidencias[m]<-matriz[x,z];
+										m<-m+1;
+									FinSi
+								FinSi
+							FinSi
+							Si z+s<c Entonces
+								//Se busca multiplos debajo y adelante del número en el que se encuentra buscando
+								Si matriz[x,z]=matriz[x+t,z+s] Entonces
+									multi<-multi+1;
+									Si multi=1 Entonces
+										//Se registra la coincidencia
+										coincidencias[m]<-matriz[x,z];
+										m<-m+1;
+									FinSi
+								FinSi
+							FinSi
+						FinPara
 					FinSi
-				SiNo
-					Para s<-1 Hasta 8 Hacer
-						Si z-s>0 Entonces
-							Si matriz[x,z]=matriz[x+t,z-s] Entonces
-								multiplos<-multiplos+1;
-								Si multiplos=1 Entonces
-									coincidencias[m]<-matriz[x,z];
-									m<-m+1
-								FinSi
-							FinSi
-						FinSi
-						Si z+s<10 Entonces
-							Si matriz[x,z]=matriz[x+t,z+s] Entonces
-								multiplos<-multiplos+1;
-								Si multiplos=1 Entonces
-									coincidencias[m]<-matriz[x,z];
-									m<-m+1
-								FinSi
-							FinSi
-						FinSi
-					FinPara
 				FinSi
-			FinSi
 			FinPara
 		FinPara
 	FinPara
 	//Se ordenan los multiplos
-	Para x<-0 Hasta m-2 Hacer
-		ant<-x;
-		Para z<-x+1 Hasta m-1 Hacer
-			Si coincidencias[z]<coincidencias[ant] Entonces
-				ant<-z;
+	//Si hay más de 0 multiplos inicia
+	Si m>0 Entonces
+		Para x<-0 Hasta m-2 Hacer
+			Si x>=0 Entonces
+				ant<-x;
+			FinSi
+			Para z<-x+1 Hasta m-1 Hacer
+				Si coincidencias[z]<coincidencias[ant] Entonces
+					ant<-z;
+				FinSi
+			FinPara		
+			Si x>=0 y coincidencias[x]<>0 y coincidencias[ant]<>0 Entonces
+				aux<-coincidencias[x];
+				coincidencias[x]<-coincidencias[ant];
+				coincidencias[ant]<-aux;
 			FinSi
 		FinPara
-		auxn<-coincidencias[x];
-		coincidencias[x]<-coincidencias[ant]
-		coincidencias[ant]<-auxn;
-	FinPara
-	//Se imprimen los multiplos
-	Para t<-0 Hasta m-1 Hacer
-		Si t>1 Entonces
-			Si coincidencias[t]<>coincidencias[t-1] Entonces
+		//Se imprimen los multiplos
+		Para t<-0 Hasta m-1 Hacer
+			Si t>1 Entonces
+				//Entre todas las coincidencias se cerciora de que no se marquen las coincidencias identicas 
+				Si coincidencias[t]<>coincidencias[t-1] Entonces
+					Escribir "Los números con multiplo " , coincidencias[t], " son:"
+					Para x<-1 Hasta f-1 Hacer 
+						Para z<-1 Hasta c-1 Hacer
+							//Se busca si la coincidencia es igual a un número en toda la tabla y se imprime
+							Si matriz[x,z]=coincidencias[t] Entonces
+								//Se imprime el número de las variables registradas en la primera columna
+								Escribir "El número ", matriz[x,0];
+							FinSi
+						FinPara
+					FinPara
+				FinSi
+			SiNo
+				//Si es la primera vez se imprime la primera coincidencia
 				Escribir "Los números con multiplo " , coincidencias[t], " son:"
-				Para x<-1 Hasta 4 Hacer 
-					Para z<-1 Hasta 9 Hacer
+				Para x<-1 Hasta f-1 Hacer 
+					Para z<-1 Hasta c-1 Hacer
+						//Se busca si la coincidencia es igual a un número en toda la tabla
 						Si matriz[x,z]=coincidencias[t] Entonces
+							//Se imprime el número de las variables registradas en la primera columna
 							Escribir "El número ", matriz[x,0];
 						FinSi
 					FinPara
 				FinPara
 			FinSi
-		SiNo
-			Escribir "Los números con multiplo " , coincidencias[t], " son:"
-			Para x<-1 Hasta 4 Hacer 
-				Para z<-1 Hasta 9 Hacer
-					Si matriz[x,z]=coincidencias[t] Entonces
-						Escribir "El número ", matriz[x,0];
-					FinSi
-				FinPara
-			FinPara
-		FinSi
-	FinPara
+		FinPara
+	SiNo
+		//Si no hay multiplos de imprime un mensaje
+		Escribir "No hay números multiplos que coincidan entre 2 o más números";
+	FinSi
 FinAlgoritmo
