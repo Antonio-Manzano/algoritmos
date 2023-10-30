@@ -124,8 +124,9 @@ Algoritmo Multiplos
 		FinPara
 		//Se imprimen los multiplos
 		Para t<-0 Hasta m-1 Hacer
-			Si t>1 Entonces
+			Si t>0 Entonces
 				//Entre todas las coincidencias se cerciora de que no se marquen las coincidencias identicas 
+				Escribir coincidencias[t]
 				Si coincidencias[t]<>coincidencias[t-1] Entonces
 					Escribir "Los números con multiplo " , coincidencias[t], " son:"
 					Para x<-1 Hasta f-1 Hacer 
