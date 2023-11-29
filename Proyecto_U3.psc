@@ -1,8 +1,16 @@
 Algoritmo Proyecto_U3
+	Definir estudiantes, carreras, grupos, maestros, pagos, becas Como Caracter;
 	Definir respuesta Como Caracter;
+	
+	Dimension estudiantes[100,6];
+	Dimension maestros[100,4];
+	Dimension carreras[100];
+	Dimension grupos[100];
+	Dimension becas[100];
+	
 	Dimension respuesta[3];
 	Repetir
-		Escribir "1.-AÒadir datos";
+		Escribir "1.-A√±adir datos";
 		Escribir "2.-Observar datos";
 		Escribir "3.-Salir";
 		Leer respuesta[0];
@@ -15,7 +23,7 @@ Algoritmo Proyecto_U3
 					Escribir "4.-Maestros";
 					Escribir "5.-Pagos";
 					Escribir "6.-Becas";
-					Escribir "7.-Volver al men˙ principal";
+					Escribir "7.-Volver al men√∫ principal";
 					Leer respuesta[1];
 					Si respuesta[1]="1" Entonces
 						Escribir "Estudiantes";
@@ -36,7 +44,7 @@ Algoritmo Proyecto_U3
 											Escribir "Becas";
 										SiNo
 											Si respuesta[1]<>"7" Entonces
-												Escribir "Elige una opciÛn v·lida";
+												Escribir "Elige una opci√≥n v√°lida";
 											FinSi
 										FinSi
 									FinSi
@@ -54,7 +62,7 @@ Algoritmo Proyecto_U3
 						Escribir "4.-Maestros";
 						Escribir "5.-Pagos";
 						Escribir "6.-Becas";
-						Escribir "7.-Volver al men˙ principal";
+						Escribir "7.-Volver al men√∫ principal";
 						Leer respuesta[2];
 						Si respuesta[2]="1" Entonces
 							Escribir "Estudiantes";
@@ -75,7 +83,7 @@ Algoritmo Proyecto_U3
 												Escribir "Becas";
 											SiNo
 												Si respuesta[2]<>"7" Entonces
-													Escribir "Elige una opciÛn v·lida";
+													Escribir "Elige una opci√≥n v√°lida";
 												FinSi
 											FinSi
 										FinSi
@@ -86,7 +94,7 @@ Algoritmo Proyecto_U3
 					Hasta Que respuesta[2]="7";
 				Sino
 					Si respuesta[0]<>"2" Entonces
-						Escribir "Elige una opciÛn v·lida";
+						Escribir "Elige una opci√≥n v√°lida";
 					FinSi
 				FinSi
 			FinSi
