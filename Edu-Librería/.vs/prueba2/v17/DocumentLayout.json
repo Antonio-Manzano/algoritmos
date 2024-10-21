@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\listadisponible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:listadisponible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|c:\\users\\to\u00F1o\\downloads\\edulibrer\u00EDa\\prestar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:prestar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|c:\\users\\to\u00F1o\\downloads\\edulibrer\u00EDa\\prestar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:prestar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:agregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\listanodisponible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:listanodisponible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\listadisponible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:listadisponible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\bienvenida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CB7A3785-E7BF-4C75-89B8-B38DEDBC8078}|prueba2.csproj|solutionrelative:bienvenida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Prestar.cs",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Prestar.cs",
+              "RelativeDocumentMoniker": "Prestar.cs",
+              "ToolTip": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Prestar.cs",
+              "RelativeToolTip": "Prestar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T00:46:40.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ListaDisponible.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\ListaDisponible.cs",
+              "RelativeDocumentMoniker": "ListaDisponible.cs",
+              "ToolTip": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\ListaDisponible.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ListaDisponible.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:13:58.229Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ListaNoDisponible.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\ListaNoDisponible.cs",
+              "RelativeDocumentMoniker": "ListaNoDisponible.cs",
+              "ToolTip": "C:\\Users\\eli82\\OneDrive\\Escritorio\\finalisadokreo\\ListaNoDisponible.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\eli82\\OneDrive\\Escritorio\\finalisadokreo\\ListaNoDisponible.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T17:48:00.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Agregar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Agregar.cs",
+              "RelativeDocumentMoniker": "Agregar.cs",
+              "ToolTip": "C:\\Users\\eli82\\OneDrive\\Escritorio\\finalisadokreo\\Agregar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\eli82\\OneDrive\\Escritorio\\finalisadokreo\\Agregar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T17:48:15.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Prestar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Prestar.cs",
+              "RelativeDocumentMoniker": "Prestar.cs",
+              "ToolTip": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Prestar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Prestar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:15:10.377Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ListaDisponible.cs",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\ListaDisponible.cs",
+              "RelativeDocumentMoniker": "ListaDisponible.cs",
+              "ToolTip": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\ListaDisponible.cs",
+              "RelativeToolTip": "ListaDisponible.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAB8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:12:29.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Agregar.cs",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Agregar.cs",
+              "RelativeDocumentMoniker": "Agregar.cs",
+              "ToolTip": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Agregar.cs",
+              "RelativeToolTip": "Agregar.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAIEAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:13:05.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Bienvenida.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\to\u00F1o\\Downloads\\EduLibrer\u00EDa\\Bienvenida.cs",
+              "RelativeDocumentMoniker": "Bienvenida.cs",
+              "ToolTip": "C:\\Users\\eli82\\OneDrive\\Escritorio\\finalisadokreo\\Bienvenida.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\eli82\\OneDrive\\Escritorio\\finalisadokreo\\Bienvenida.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T17:49:01.27Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
