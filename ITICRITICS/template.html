@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Videojuego - [Nombre del Videojuego]</title>
+    <link rel="stylesheet" href="public/css/pages.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="public/img/logomini.png" style="width: 15rem;"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Juegos">
+            <button>Buscar</button>
+        </div>
+        <div class="profile">
+            <button class="boton_agregar"><a href="registro/registro.html">Registro</a></button>
+            <button class="boton_agregar"><a href="registro/inicio.html">Inicio</a></button>
+            <div class="avatar"></div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="banner"></div>
+            <div class="template-game-details">
+                <h1 class="template-game-title">Nombre del Videojuego</h1>
+                <div class="template-game-cover">
+                    <img src="public/img/caratula.jpg" alt="Carátula de Nombre del Videojuego" class="template-game-image">
+                </div>
+                
+                <div class="template-game-info">
+                    <div class="template-score">
+                        <h2>Puntuación de los Usuarios: <span id="user-score">85/100</span></h2>
+                    </div>
+                    <h3>Sínopsis:</h3>
+                    <p id="synopsis">En un mundo lleno de aventuras, el jugador asumirá el papel de un héroe que debe enfrentarse a enemigos poderosos y descubrir secretos ocultos.</p>
+                    
+                    <h3>Géneros:</h3>
+                    <ul class="template-genres" id="genres">
+                        <li>Acción</li>
+                        <li>Aventura</li>
+                        <li>RPG</li>
+                    </ul>
+                    
+                    <h3>Consolas Disponibles:</h3>
+                    <ul class="template-consoles" id="consoles">
+                        <li>PC</li>
+                        <li>PlayStation 5</li>
+                        <li>XBOX Series X</li>
+                    </ul>
+                    
+                    <h3>Lenguajes:</h3>
+                    <ul class="template-languages" id="languages">
+                        <li>Español</li>
+                        <li>Inglés</li>
+                        <li>Francés</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    </body>
+</html>
