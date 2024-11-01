@@ -34,9 +34,9 @@ header {
 
 .login2{
     border: 1px solid black;
-    width: 460px;
-    height: 640px;
-    background: url('../img/logo.png');
+    width: 850px;
+    height: 450px;
+    background: url('../img/ITICRITICS_HD.png');
     color: white;
     border-radius: .5em;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
@@ -49,13 +49,15 @@ header {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 1em;
+    margin-top: -1em;
 }
 
 .columnas{
     flex:1;
     min-width: 250px;
     padding: 0.5em;
-} 
+}
+
 form {
     display: block;
     box-sizing: border-box;
@@ -68,21 +70,22 @@ form {
     gap: 5px;
 }
 
-
-
 label {
-    color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
-    font-size: 10px;
+    color: rgb(255, 255, 255);
+    background-color: #552c83;
+    border-radius: .3rem;
+    font-size: 12pt;
     letter-spacing: 2px;
-    padding-left: 10px;
+    padding-left: 5px;
+    
 }
 
 input {
-    background: rgba(255, 255, 255, 0.3);
+    background: #363636d1;
     height: 40px;
-    line-height: 40px;
-    border-radius: .5em;
+    width: 350px;
+    font-size: 11pt;
+    border-radius: .5rem;
     padding: 0px 20px;
     border: none;
     margin-bottom: 20px;
@@ -90,15 +93,20 @@ input {
 }
 
 button {
-    background: rgba(45, 126, 231);
+    background: #6a2bb2;
     height: 40px;
-    line-height: 40px;
-    border-radius: 40px;
+    width: 200px;
+    border-radius: .5rem;
     border: none;
+    font-size: 12pt;
     margin: 10px 0px;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
     color: white;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #522487;
 }
 
 html, body {
@@ -118,13 +126,6 @@ h1 {
 
 h1, h2 {
     /*color: #333;*/
-}
-
-
-
-
-button:hover {
-    background-color:rgba(45, 126, 231);
 }
 
 ul {
