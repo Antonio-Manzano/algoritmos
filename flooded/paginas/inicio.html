@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="../metodos/css/styles.css">
+</head>
+<body>
+        <header>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <a href="index.html">
+                <img src="img/FLOODED LOGO.png">
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar Proyectos">
+                <button>Buscar</button>
+            </div>
+        </header>
+
+        <div class="container">
+            <aside id="sidebar">
+                <nav>
+                    <ul id="project-list">
+                    </ul>
+                </nav>
+            </aside>
+    
+            <main id="content">
+                <h1>Bienvenido a Proyectos</h1>
+                <p>Selecciona un proyecto desde la barra lateral para ver su información.</p>
+                <div id="project-details" class="project-details">
+                </div>
+            </main>
+        </div>
+    
+        <script>
+            const proyectos = [
+                { id: 1, nombre: "Proyecto 1", descripcion: "ola 1." },
+                { id: 2, nombre: "Proyecto 2", descripcion: "ola 2." },
+                { id: 3, nombre: "Proyecto 3", descripcion: "ola 3." }
+            ];
+    
+            function renderProjectList() {
+                const projectList = document.getElementById("project-list");
+                projectList.innerHTML = proyectos
+                    .map(proyecto => `<li><a href="#" onclick="showProject(${proyecto.id})">${proyecto.nombre}</a></li>`)
+                    .join("");
+            }
+    
+            function showProject(id) {
+                const proyecto = proyectos.find(p => p.id === id);
+                if (proyecto) {
+                    const projectDetails = document.getElementById("project-details");
+                    projectDetails.innerHTML = `
+                        <h2>${proyecto.nombre}</h2>
+                        <p>${proyecto.descripcion}</p>
+                    `;
+                    projectDetails.style.display = "block"; 
+                }
+            }
+    
+            function toggleSidebar() {
+                document.getElementById("sidebar").classList.toggle("active");
+                document.getElementById("content").classList.toggle("shifted");
+            }
+            renderProjectList();
+        </script>
+        <script>
+            function toggleSidebar() {
+                document.getElementById("sidebar").classList.toggle("active");
+                document.getElementById("content").classList.toggle("shifted");
+            }
+        </script>
+    
+</body>
+</html>

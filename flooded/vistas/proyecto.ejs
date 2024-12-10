@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= proyecto.nombre %> - Proyecto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+</head>
+<body>
+    <header>
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <a href="..\flooded">
+            <img src="/img/FLOODED LOGO.png" style="justify-content: left;">
+        </a>
+        <div class="notificaciones">
+            <img src="/img/notifacion.png">
+            <div class="lista-notificaciones">
+                <ul>
+                    <% if (notificaciones && notificaciones.length > 0) { %>
+                        <% notificaciones.forEach(function(notificacion) { %>
+                            <li>
+                                <p><%= notificacion.mensaje %></p>
+                                <div class="acciones">
+                                    <form action="/notificaciones/aceptar" method="POST" style="display:inline;">
+                                        <input type="hidden" name="notificacionId" value="<%= notificacion._id %>">
+                                        <input type="hidden" name="proyectoNombre" value="<%= notificacion.proyecto %>">
+                                        <button type="submit" class="aceptar">Aceptar</button>
+                                    </form>
+                                    <form action="/notificaciones/rechazar" method="POST" style="display:inline;">
+                                        <input type="hidden" name="notificacionId" value="<%= notificacion._id %>">
+                                        <button type="submit" class="rechazar">Rechazar</button>
+                                    </form>
+                                </div>
+                            </li>
+                        <% }); %>
+                    <% } else { %>
+                        <li>No tienes notificaciones pendientes.</li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <div class="profile-container">
+            <img src="/img/user.png" class="user" onclick="toggleMenu()"> 
+            <div id="menu" class="menu">
+                <form>
+                    <div class="form-group">
+                        <center><label>Username:</label></center>
+                        <br>
+                        <label for="username"><%= nombreUsuario %></label>
+                    </div>
+                    <div class="form-group">
+                        <center><label>Correo:</label></center>
+                        <br>
+                        <label for="email"><%= correo %></label>
+                    </div>
+                    <center><button><a href="/logout" type="submit">Cerrar Sesión</a></button></center>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside id="sidebar">
+            <nav>
+                <ul id="project-list">
+                    <% if (proyectos && proyectos.length > 0) { %>
+                        <% proyectos.forEach(function(proyecto) { %>
+                            <li><a href="/proyecto/<%= proyecto.nombre %>"><%= proyecto.nombre %></a></li>
+                        <% }); %>
+                    <% } %>
+                    <li><a href="#" onclick="openPopup()">Agregar Proyecto</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="content">
+            <h1>Proyecto "<%= proyecto.nombre %>"</h1>
+            <div class="main-container">
+                <div class="left-container">
+                    <button id="agregarGeneradorBtn" onclick="agregarGenerador()">Agregar Generador de Gráfico</button>
+                    <div id="contenedorGeneradores">
+                        <% proyecto.graficas.forEach(graficas => { %>
+                            <div class="generador-instancia">
+                                <div class="left">
+                                    <form action="/add-graph" method="POST">
+                                        <input type="hidden" name="proyectoNombre" value="<%= proyecto.nombre %>">
+                                        <select name="tipo" class="tipo">
+                                            <option value="circular" <%= graficas.tipo === true ? 'selected' : '' %>>Gráfico Circular</option>
+                                            <option value="columna" <%= graficas.tipo === false ? 'selected' : '' %>>Gráfico de Columnas</option>
+                                        </select>
+                                        <input type="text" name="titulo" placeholder="Título del Gráfico" class="titulo" value="<%= graficas.titulo %>">
+                                        <div class="datos" id="datos">
+                                            <% graficas.datos.forEach(datos => { %>
+                                                <div class="dato">
+                                                    <input type="text" name="series[]" placeholder="Leyenda 1" class="serie" value="<%= datos.serie %>">
+                                                    <input type="number" name="valores[]" placeholder="Valor 1" class="valor" value="<%= datos.valor %>">
+                                                </div>
+                                            <% }); %>
+                                        </div>
+                                        <div class="botones-container">
+                                            <button type="submit" class="crear-grafico">Guardar</button>
+                                            <button type="button" onclick="cargarGrafico(this)" class="crear-grafico">Cargar</button>   
+                                            <button type="button" onclick="agregarDato(this)" class="agregar"> + </button>     
+                                            <button type="button" class="eliminar" onclick="eliminarGenerador(this)">Eliminar</button>   
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="right" >
+                                    <div class="grafico"></div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            
+                <div class="right-container">
+                    <div class="container-page">
+                        <div class="container2">
+                            <h1>Días de tarea</h1>
+                            <form id="taskForm" action="/agregar-tarea" method="POST">
+                                <input type="text" name="taskName" placeholder="Nombre de la tarea" required>
+                                <input type="date" name="startDate" required>
+                                <input type="date" name="endDate" required>
+                                <input type="hidden" name="proyectoNombre" value="<%= proyecto.nombre %>">
+                                <button type="submit">Agregar tarea</button>
+                                <label>Click en la barra de días para eliminar tarea</label>
+                            </form>                                                 
+                            <div class="gantt-chart" id="ganttChart">
+                                <% proyecto.tareas.forEach(task => { %>
+                                    <div class="task" id="task_<%= task._id %>">
+                                        <div class="task-name"><%= task.nombre %></div>
+                                        <div class="task-bars">
+                                            <div class="bar completed" id="bar_<%= task._id %>" data-task-id="<%= task._id %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const tareas = <%- JSON.stringify(tareas) %>; 
+                                if (!Array.isArray(tareas) || tareas.length === 0) {
+                                    console.log('No se encontraron tareas.');
+                                    return;
+                                }
+                                const ganttChart = document.getElementById("ganttChart");
+                                if (!ganttChart) {
+                                    console.error('El contenedor de Gantt no se encontró.');
+                                    return;
+                                }
+                                tareas.forEach(task => {
+                                    const taskName = task.nombre;
+                                    const startDate = new Date(task.fechaInicio);
+                                    const endDate = new Date(task.fechaFin);
+                                    if (isNaN(startDate) || isNaN(endDate)) {
+                                        console.error(`Fecha inválida para la tarea ${taskName}.`);
+                                        return;
+                                    }
+                                    const duration = (endDate - startDate) / (1000 * 3600 * 24);
+                                    if (duration <= 0) {
+                                        console.error(`Duración inválida para la tarea ${taskName}.`);
+                                        return;
+                                    }
+                                    const taskBar = document.getElementById(`bar_${task._id}`);
+
+                                    if (!taskBar) {
+                                        console.error(`No se encontró la barra para la tarea ${taskName}.`);
+                                        return;
+                                    }
+                                    const totalWidth = duration * 4;
+                                    const maxWidth = 230;
+                                    const calculatedWidth = Math.min(totalWidth, maxWidth);
+
+                                    taskBar.style.width = `${calculatedWidth}px`;
+                                    taskBar.textContent = `${duration} días`; 
+                                });
+                            });
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const tareas = <%- JSON.stringify(tareas) %>; 
+                                document.querySelectorAll('.bar').forEach(bar => {
+                                    bar.addEventListener('click', async function() {
+                                        const taskId = bar.getAttribute('data-task-id');
+                                        const confirmDelete = confirm("¿Estás seguro de que deseas eliminar esta tarea?");
+                                        if (confirmDelete) {
+                                            const response = await fetch(`/eliminar-tarea/${taskId}`, {
+                                                method: 'DELETE',
+                                            });
+
+                                            if (response.ok) {
+                                                alert("Tarea eliminada correctamente");
+                                                location.reload(); 
+                                            } else {
+                                                alert("Hubo un error al eliminar la tarea");
+                                            }
+                                        }
+                                    });
+                                });
+                            });
+                    </script>
+                    <script src="/js/diagrama.js"></script>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Agregar Proyecto</h2>
+            <form class="formulario" action="/add-project" method="POST">
+                <label for="project-name">Nombre del Proyecto:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Proyecto">
+
+                <label for="user-emails">Añadir a usuarios (correos separados por comas):</label>
+                <input type="text" id="usuarios" name="usuarios" placeholder="usuario1@email.com, usuario2@email.com">
+
+                <button type="submit" onclick="closePopup()">Agregar Proyecto</button>
+                <button type="button" onclick="closePopup()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    <button id="download-btn" class="boton">Guardar PDF</button>
+    <script>
+       document.getElementById('download-btn').addEventListener('click', () => {
+            const element = document.body;
+            html2pdf()
+                .from(element)  
+                .set({
+                    filename: 'contenido_completo.pdf',
+                    html2canvas: { 
+                        scale: 2, 
+                        logging: false, 
+                        letterRendering: true, 
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a2', 
+                        orientation: 'portrait', 
+                        autoPaging: true, 
+                    }
+                })
+                .save(); 
+        });
+    </script>
+    
+    <div class="chat-container minimized">
+        <div class="chat-header">
+            <span>Comentarios</span>
+            <span class="minimize" onclick="minimizeChat()">&#x25BC;</span>
+        </div>
+        <div class="chat-body">
+            <% proyecto.chat.forEach(chat => { %>
+                <div class="message <%= chat.usuario === nombreUsuario ? 'sent' : 'received' %>">
+                    <div class="text2"><%= chat.usuario %></div>
+                    <div class="text"><%= chat.mensaje %></div>
+                </div>
+            <% }); %>
+        </div>
+        <div class="chat-footer">
+            <form id="chatForm" action="/agregar-comentario" method="POST">
+                <input type="text" name="recibido" placeholder="Escribe..." id="chat-input">
+                <input type="hidden" name="proyectoNombre" value="<%= proyecto.nombre %>">
+                <button type="submit">&#x21D2;</button>
+            </form>
+        </div>
+    </div>
+    <script src="/js/menu_user.js"></script>
+
+    <script>
+        function minimizeChat() {
+            const chatContainer = document.querySelector('.chat-container');
+            const minimizeIcon = document.querySelector('.minimize');
+            chatContainer.classList.toggle('minimized');
+            minimizeIcon.innerHTML = chatContainer.classList.contains('minimized') ? '&#x25B2;' : '&#x25BC;';
+        }
+        function sendMessage() {
+            const inputField = document.getElementById('chat-input');
+            const chatBody = document.querySelector('.chat-body');
+            const messageText = inputField.value.trim();
+            if (messageText) {
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message', 'sent');
+                newMessage.innerHTML = `<div class="text">${messageText}</div>`;
+                chatBody.appendChild(newMessage);
+                inputField.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        }
+        function agregarGenerador() {
+            const contenedorGeneradores = document.getElementById("contenedorGeneradores");
+            const generador = document.createElement("div");
+            generador.className = "generador-instancia";
+
+            generador.innerHTML = `
+                <div class="left">
+                <form action="/add-graph" method="POST">
+                    <input type="hidden" name="proyectoNombre" value="<%= proyecto.nombre %>">
+                    <select name="tipo" class="tipo">
+                        <option value="circular">Gráfico Circular</option>
+                        <option value="columna">Gráfico de Columnas</option>
+                    </select>
+                    <input type="text" name="titulo" placeholder="Título del Gráfico" class="titulo">
+                    <div class="datos" id="datos">
+                        <div class="dato">
+                            <input type="text" name="series[]" placeholder="Leyenda 1" class="serie">
+                            <input type="number" name="valores[]" placeholder="Valor 1" class="valor">
+                        </div>
+                        <div class="dato">
+                            <input type="text" name="series[]" placeholder="Leyenda 2" class="serie">
+                            <input type="number" name="valores[]" placeholder="Valor 2" class="valor">
+                        </div>
+                    </div>
+                    <div class="botones-container"> 
+                        <button type="submit" class="crear-grafico">Guardar</button>
+                        <button type="button" onclick="cargarGrafico(this)" class="crear-grafico">Cargar</button>   
+                        <button type="button" onclick="agregarDato(this)" class="agregar"> + </button>     
+                        <button type="button" class="eliminar" onclick="eliminarGenerador(this)">Eliminar</button>   
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <div class="grafico" style="display: none;"></div>
+            </div>
+        `; 
+
+            contenedorGeneradores.appendChild(generador);
+        }
+
+        function eliminarGenerador(button) {
+            const generador = button.closest('.generador-instancia');
+            generador.remove();
+        }
+
+        function agregarDato(button) {
+            const contenedorGenerador = button.closest('.generador-instancia');
+            const datosContainer = contenedorGenerador.querySelector('.datos');
+            const nuevoDato = document.createElement("div");
+            nuevoDato.className = "dato";
+            nuevoDato.innerHTML = `
+                <input type="text" name="series[]" placeholder="Leyenda" class="serie">
+                <input type="number" name="valores[]" placeholder="Valor" class="valor">
+            `;
+
+            datosContainer.appendChild(nuevoDato);
+        }
+
+        function cargarGrafico(button) {
+            const contenedor = button.closest('.generador-instancia');
+            google.charts.load('current', { packages: ['corechart'] });
+            google.charts.setOnLoadCallback(() => drawChart(contenedor));
+        }
+
+        function drawChart(contenedor) {
+            const datos = [['Leyenda', 'Valor']];
+            const titulo = contenedor.querySelector('.titulo').value;
+            const entradas = contenedor.querySelectorAll('.dato');
+
+            if (!titulo || Array.from(entradas).some(d => !d.querySelector('.serie').value || !d.querySelector('.valor').value)) {
+                alert('Por favor, complete todos los campos.');
+                return;
+            }
+
+            entradas.forEach(dato => {
+                const leyenda = dato.querySelector('.serie').value;
+                const valor = parseFloat(dato.querySelector('.valor').value);
+                datos.push([leyenda, valor]);
+            });
+
+            const data = google.visualization.arrayToDataTable(datos);
+            const options = {
+                title: titulo,
+                backgroundColor: 'transparent',
+                titleTextStyle: { color: '#fff', fontSize: 16 },
+                legendTextStyle: { color: '#000000' },
+                width: 400,
+                height: 300,
+                tooltip: {
+                    isHtml: true, 
+                    trigger: 'focus',
+                    textStyle: {
+                        color: '#000000',
+                        fontSize: 12
+                    },
+                    showColorCode: true, 
+                }
+            };
+
+            const graficoContainer = contenedor.querySelector('.grafico');
+            graficoContainer.style.display = 'block';
+            const chartType = contenedor.querySelector('.tipo').value;
+            const chart = chartType === 'circular'
+                ? new google.visualization.PieChart(graficoContainer)
+                : new google.visualization.ColumnChart(graficoContainer);
+
+            chart.draw(data, options);
+        }
+
+    </script>
+</body>
+</html>

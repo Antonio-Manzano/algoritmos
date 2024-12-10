@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Gráficos</title>
+    <link rel="stylesheet" href="graf.css">
+</head>
+<body>
+    <h1>Generador de Gráficos</h1>
+
+    <button id="agregarGeneradorBtn" onclick="agregarGenerador()">Agregar Generador de Gráfico</button>
+    <div id="contenedorGeneradores"></div>
+    <div class="generador-instancia">
+    <button class="eliminar" onclick="eliminarGenerador(this)">Eliminar</button>
+    <div class="left">
+        <select class="tipo">
+            <option value="circular">Gráfico Circular</option>
+            <option value="columna">Gráfico de Columnas</option>
+        </select>
+        <input type="text" placeholder="Título del Gráfico" class="titulo">
+        <div class="datos">
+            <div class="dato">
+                <input type="text" placeholder="Leyenda 1" class="serie">
+                <input type="text" placeholder="Valor 1" class="valor">
+            </div>
+            <div class="dato">
+                <input type="text" placeholder="Leyenda 2" class="serie">
+                <input type="text" placeholder="Valor 2" class="valor">
+            </div>
+        </div>
+
+        <button onclick="agregarDato(this)" class="agregar"> + </button>
+        <button onclick="cargarGrafico(this)" class="crear-grafico">Crear Gráfico</button>
+    </div>
+    <div class="right">
+        <div class="grafico"></div>
+    </div>
+</div>
+    <script src="loader.js"></script>
+    <script src="graf.js"></script>
+</body>
+</html>

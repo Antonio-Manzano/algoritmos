@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <a href="flooded">
+            <img src="img/FLOODED LOGO.png" style="justify-content: left;">
+        </a>
+        <div class="notificaciones">
+            <img src="img/notifacion.png">
+            <div class="lista-notificaciones">
+                <ul>
+                    <% if (notificaciones && notificaciones.length > 0) { %>
+                        <% notificaciones.forEach(notificacion => { %>
+                            <li>
+                                <p><%= notificacion.mensaje %></p>
+                                <div class="acciones">
+                                <form action="/notificaciones/aceptar" method="POST" style="display:inline;">
+                                    <input type="hidden" name="notificacionId" value="<%= notificacion._id %>">
+                                    <input type="hidden" name="proyectoNombre" value="<%= notificacion.proyecto %>">
+                                    <button type="submit" class="aceptar">Aceptar</button>
+                                </form>
+                                <form action="/notificaciones/rechazar" method="POST" style="display:inline;">
+                                    <input type="hidden" name="notificacionId" value="<%= notificacion._id %>">
+                                    <button type="submit" class="rechazar">Rechazar</button>
+                                </form>
+                                </div>
+                            </li>
+                        <% }); %>
+                    <% } else { %>
+                        <li>No tienes notificaciones pendientes.</li>
+                    <% } %>
+                </ul>         
+                                          
+            </div>
+        </div>
+        
+            
+        
+        <div class="profile-container">
+            <img src="img/user.png" class="user" onclick="toggleMenu()"> 
+            
+            <div id="menu" class="menu">
+                <form>
+                    <div class="form-group">
+                        <center><label>Username:</label></center>
+                        <br>
+                        <label for="username"><%= nombreUsuario %></label>
+                    </div>
+                    <div class="form-group">
+                        <center><label>Correo:</label></center>
+                        <br>
+                        <label for="email"><%= correo %></label>
+                    </div>
+                    <center><button><a href="/logout" type="submit">Cerrar Sesión</a></button></center>
+                </form>
+            </div>
+            
+        </div>
+    </header>
+
+    <div class="container">
+        <aside id="sidebar">
+            <nav>
+                <ul id="project-list">
+                    <% if (proyectos && proyectos.length > 0) { %>
+                        <% proyectos.forEach((proyecto) => { %>
+                            <li><a href="/proyecto/<%= proyecto.nombre %>"><%= proyecto.nombre %></a></li>
+                        <% }); %>
+                    <% } %>
+                    <li><a href="#" onclick="openPopup()">Agregar Proyecto</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="content">
+            <h1>Bienvenido a Proyectos</h1>
+            <p>Selecciona un proyecto o agrega uno nuevo desde la barra lateral.</p>
+        </main>
+    </div>
+
+    
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Agregar Proyecto</h2>
+            <form class="formulario" action="/add-project" method="POST">
+                <label for="project-name">Nombre del Proyecto:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Proyecto">
+
+                <label for="user-emails">Añadir a usuarios (correos separados por comas):</label>
+                <input type="text" id="usuarios" name="usuarios" placeholder="usuario1@email.com, usuario2@email.com">
+
+                <button type="submit" onclick="closePopup()">Agregar Proyecto</button>
+                <button type="button" onclick="closePopup()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/menu_user.js"></script>
+</body>
+</html>

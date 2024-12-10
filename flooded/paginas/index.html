@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../metodos/css/style.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <img class="bubble" src="img/burbuja1.png">
+        <img class="bubble" src="img/burbuja2.png">
+        <img class="bubble" src="img/burbuja3.png">
+        <img class="bubble" src="img/burbuja4.png">
+        <img class="bubble" src="img/burbuja5.png">
+        <img class="bubble" src="img/burbuja6.png">
+        <img class="bubble" src="img/burbuja7.png">
+        <img class="bubble" src="img/burbuja8.png">
+        <img class="bubble_big" src="img/burbuja4.png">
+        <img class="bubble_big" src="img/burbuja4.png">
+        <img class="bubble_big" src="img/burbuja4.png">
+
+        <div class="container-form sign-up">
+            <div class="welcome-back">
+                <div class="message">
+                    <h2>Bienvenido</h2>
+                    <p>Si ya tienes una cuenta por favor inicia sesión aquí</p>
+                    <button class="sign-up-btn" onclick="mostrarLogin()">Iniciar Sesión</button>
+                </div>
+            </div>
+            <form class="formulario" action="/registro" method="POST">
+                <img style="width: 180px; margin-bottom: -2rem; margin-top: 1em;" src="img/FLOODED LOGO_con_letras.png">
+                <h2 class="create-account">Crear una cuenta</h2>
+                <p class="texto">Ingresa los datos requeridos</p>
+                
+                <% if (error) { %>
+                    <p class="error-message"><%= error %></p>
+                <% } %>
+                <input type="text" name="nombre_de_usuario" required placeholder="Nombre de usuario">
+                <input type="email" name="correo_e" required placeholder="Correo electrónico">
+                <input type="password" name="contrasena" required maxlength="10" placeholder="Contraseña">
+                <button class="button" type="submit">Registrarse</button>
+            </form>
+        </div>
+
+        <div class="container-form sign-in" style="display:none;">
+            <form class="formulario" action="/login" method="POST">
+                <img style="width: 180px; margin-bottom: -1rem; margin-top: 1em;" src="img/FLOODED LOGO_con_letras.png">
+                <h2 class="create-account">Iniciar Sesión</h2>
+                <input type="email" name="correo_e" required placeholder="Correo electrónico">
+                <input type="password" name="contrasena" required maxlength="10" placeholder="Contraseña">
+                <button class="button" type="submit">Iniciar Sesión</button>
+            </form>
+            <div class="welcome-back">
+                <div class="message">
+                    <h2>Bienvenido</h2>
+                    <p>Si aún no tienes una cuenta, por favor regístrate aquí</p>
+                    <button class="sign-in-btn" onclick="mostrarSignUp()">Registrarse</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/inicio.js"></script>
+        <script>
+            // Función para mostrar el formulario de iniciar sesión
+            function mostrarLogin() {
+                document.querySelector('.sign-up').style.display = 'none';
+                document.querySelector('.sign-in').style.display = 'block';
+            }
+
+            // Función para mostrar el formulario de registro
+            function mostrarSignUp() {
+                document.querySelector('.sign-in').style.display = 'none';
+                document.querySelector('.sign-up').style.display = 'block';
+            }
+        </script>
+    </body>
+</html>
